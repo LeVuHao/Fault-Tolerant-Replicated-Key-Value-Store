@@ -1,0 +1,3 @@
+@echo off
+echo Dang mo Web Dashboard tren trinh duyet...
+start "" "%~dp0dashboard\index.html"

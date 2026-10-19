@@ -1,0 +1,21 @@
+Track C: Fault-Tolerant Replicated Key-Value Store
+• Textbook & Syllabus Alignment: Lecture 02, 06, 07, 08 | Chapter 5 & Chapter
+7 (Sec. 7.1–7.5).
+• System Goal: Build a distributed key-value storage cluster that replicates data
+across multiple storage nodes to provide high availability and configurable
+consistency guarantees.
+• Individual Module Ownership:
+o Student 1 — Primary / Coordinator Node & Write Protocol:
+Implements a primary-based consistency protocol (or quorum consensus).
+Receives client PUT/DELETE updates, assigns monotonically increasing
+version numbers, and propagates updates synchronously or
+asynchronously to backup replicas.
+o Student 2 — Backup Replica Nodes & Catch-Up Recovery: Manages
+local persistent key-value storage on backup nodes, processes replication
+streams from the primary, detects missed updates upon rejoining after a
+crash, and synchronizes stale state.
+o Student 3 — Smart Client Proxy & Client-Centric Consistency:
+Implements a client-side middleware library (Fig. 3-10) that provides
+Read-Your-Writes and Monotonic Reads guarantees. Caches recent
+reads locally and automatically fails over to a backup replica if a server
+times out.
